@@ -12,6 +12,6 @@ public abstract class TM_MatchContestant {
     }
 
     public void setAccount(Integer winPoints, Integer losePoints) {
-        this.account = winPoints - losePoints;
+        this.account += winPoints - losePoints;
     }
 }
