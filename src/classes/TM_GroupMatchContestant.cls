@@ -22,6 +22,10 @@ public class TM_GroupMatchContestant extends TM_MatchContestant {
         }
     }
 
+    public void setAccount() {
+
+    }
+
     private void incrementStatsBasedOnResult(Integer result) {
         if (result == TM_Utils.MATCH_RESULT_WIN) {
             this.wins++;

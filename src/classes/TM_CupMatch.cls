@@ -19,7 +19,11 @@ public class TM_CupMatch extends TM_Match {
     }
 
     public void setCupMatchResult(Integer contestantAScore, Integer contestantBScore) {
-        this.setMatchResult(contestantAScore, contestantBScore);
+        if (!this.isResolved) {
+            this.setMatchResult(contestantAScore, contestantBScore);
+            this.contestantA.setAccount(contestantAScore, contestantBScore);
+            this.contestantB.setAccount(contestantBScore, contestantAScore);
+        }
 
         if (this.isResolved) {
             this.determineWinner();

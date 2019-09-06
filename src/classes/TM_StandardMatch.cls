@@ -9,6 +9,10 @@ public class TM_StandardMatch extends TM_Match {
     }
 
     public void setStandardMatchResult(Integer contestantAScore, Integer contestantBScore) {
-        this.setMatchResult(contestantAScore, contestantBScore);
+        if (!this.isResolved) {
+            this.setMatchResult(contestantAScore, contestantBScore);
+            this.contestantA.setAccount(contestantAScore, contestantBScore);
+            this.contestantB.setAccount(contestantBScore, contestantAScore);
+        }
     }
 }
