@@ -15,12 +15,10 @@ public abstract class TM_Match {
 
     protected void setMatchResult(Integer contestantAScore, Integer contestantBScore) {
         if (contestantAScore != null && contestantBScore != null) {
-            if (!this.isResolved) {
-                if (this.contestantAScore1 == null || this.contestantBScore1 == null) {
-                    this.setFirstMatchScore(contestantAScore, contestantBScore);
-                } else {
-                    this.setSecondMatchScore(contestantAScore, contestantBScore);
-                }
+            if (this.contestantAScore1 == null || this.contestantBScore1 == null) {
+                this.setFirstMatchScore(contestantAScore, contestantBScore);
+            } else {
+                this.setSecondMatchScore(contestantAScore, contestantBScore);
             }
         }
     }
