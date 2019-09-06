@@ -15,9 +15,11 @@ public class TM_GroupMatchContestant extends TM_MatchContestant {
     }
 
     public void setMatchResult(Integer scoreIncrementation, Integer result) {
-        this.score += scoreIncrementation;
-        this.incrementStatsBasedOnResult(result);
-        this.matchesTaken++;
+        if (scoreIncrementation != null && result != null) {
+            this.score += scoreIncrementation;
+            this.incrementStatsBasedOnResult(result);
+            this.matchesTaken++;
+        }
     }
 
     private void incrementStatsBasedOnResult(Integer result) {
