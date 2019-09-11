@@ -12,9 +12,7 @@
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
     <label>Tournament Matcher</label>
     <navType>Standard</navType>
-    <tabs>standard-home</tabs>
-    <tabs>Tournament__c</tabs>
-    <tabs>Tournament_Phase__c</tabs>
+    <tabs>Tournament_Manager</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Tournament_Matcher_UtilityBar</utilityBar>
 </CustomApplication>

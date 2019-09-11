@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Button_Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Button_Close</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Close</shortDescription>
+        <value>Close</value>
+    </labels>
+    <labels>
+        <fullName>Button_Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Button_New</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>Button_Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Button_Select</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Button Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Error_Message_Review_Errors</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Message Review Errors</shortDescription>
+        <value>Review the errors on this page.</value>
+    </labels>
+    <labels>
+        <fullName>Label_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label_Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>Label_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label_Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Death_Status_Alive</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Death Status Alive</shortDescription>
+        <value>Alive</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Death_Status_Dead</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Death Status Dead</shortDescription>
+        <value>Dead</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Alolan_Picture_Url</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Alolan Picture Url</shortDescription>
+        <value>Alolan Picture Url</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Alolan_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Alolan Type</shortDescription>
+        <value>Alolan Type</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Death</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Death</shortDescription>
+        <value>Death</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Death_Level</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Death Level</shortDescription>
+        <value>Death Level</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Death_Reason</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Death Reason</shortDescription>
+        <value>Cause of Death</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Form</shortDescription>
+        <value>Form</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Form_Colon</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Form Colon</shortDescription>
+        <value>Form:</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Has_Alolan_Form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Has Alolan Form</shortDescription>
+        <value>Has Alolan Variant</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Level</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Level</shortDescription>
+        <value>Level</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Level_Colon</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Level Colon</shortDescription>
+        <value>Level:</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Life_Status</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Life Status</shortDescription>
+        <value>Life Status</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Name</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Name_Colon</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Name Colon</shortDescription>
+        <value>Name:</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Picture_Url</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Picture Url</shortDescription>
+        <value>Picture Url</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Field_Type_Colon</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Field Type Colon</shortDescription>
+        <value>Type:</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Modal_Title_Add_New_Final_Team</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Modal Title Add New Final Team</shortDescription>
+        <value>Add New Final Team</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Modal_Title_Edit_Death_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Modal Title Edit Death Info</shortDescription>
+        <value>Edit {0} Life Information</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Modal_Title_Edit_Picture</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Modal Title Edit Picture</shortDescription>
+        <value>Edit picture for {0}</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Next_Available_Form_Header</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Next Available Form Header</shortDescription>
+        <value>Stage {0} available forms for {1}:</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_No_Next_Available_Form</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR No Next Available Form</shortDescription>
+        <value>{0} is in it&apos;s final form</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Placeholder_Empty_Final_Team_Members_List</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Placeholder Empty Final Team Members List</shortDescription>
+        <value>The Final Team has no members</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Placeholder_Final_Team_Members_List</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Placeholder Final Team Members List</shortDescription>
+        <value>The Final Team for this Nuzlocke is not assembled</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_PokedexNr_PokemonName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Pokedex Nr - Pokemon Name</shortDescription>
+        <value>{0}. {1}</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Section_Title_Death_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Section Title Death Info</shortDescription>
+        <value>Life Information</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Section_Title_Final_Team_Members</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Section Title Final Team Members</shortDescription>
+        <value>Final Team Members</value>
+    </labels>
+    <labels>
+        <fullName>PMHR_Section_Title_Pokemon_Picture</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>PMHR Section Title Pokemon Picture</shortDescription>
+        <value>{0} Picture(s)</value>
+    </labels>
+    <labels>
+        <fullName>Spinner_Alt_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Spinner Alt Text</shortDescription>
+        <value>Loading...</value>
+    </labels>
+    <labels>
+        <fullName>TM_Draw</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TM_Draw</shortDescription>
+        <value>Draw</value>
+    </labels>
+    <labels>
+        <fullName>TM_MatchNotResolved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TM_MatchNotResolved</shortDescription>
+        <value>Match not yet resolved</value>
+    </labels>
+    <labels>
+        <fullName>TM_NoTournaments</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TM_NoTournaments</shortDescription>
+        <value>No tournaments found...</value>
+    </labels>
+    <labels>
+        <fullName>TM_TournamentBrowserHeader</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TM_TournamentBrowserHeader</shortDescription>
+        <value>Tournaments</value>
+    </labels>
+    <labels>
+        <fullName>TM_TournamentIconAltText</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TM_TournamentIconAltText</shortDescription>
+        <value>Tournament Icon</value>
+    </labels>
+    <labels>
+        <fullName>TM_TournamentNamePlaceholder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>TM_TournamentNamePlaceholder</shortDescription>
+        <value>Tournament name...</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Error_Add_New_Final_Team</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Error Add New Final Team</shortDescription>
+        <value>Adding a new Final Team failed</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Error_Death_Level</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Error Death Level</shortDescription>
+        <value>Death level must be between 1 and 100</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Error_Final_Team_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Error Final Team Info</shortDescription>
+        <value>Couldn&apos;t retrieve Final Team information</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Error_Missing_Fields</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Error Missing Fields</shortDescription>
+        <value>Required fields are missing</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Error_Next_Available_Forms</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Error Next Available Forms</shortDescription>
+        <value>Couldn&apos;t retrieve next form information</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Error_Nuzlocke_Finished_With_Success_Without_Final_Team</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Error Nuzlocke Finished With Success Without Final Team</shortDescription>
+        <value>You can&apos;t mark Nuzlocke as finished with success if it doesn&apos;t have any final team assembled</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Error_Record_Update</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Error Record Update</shortDescription>
+        <value>Something went wrong when saving the record</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Success_Add_New_Final_Team</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Success Add New Final Team</shortDescription>
+        <value>New Final Team added</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Success_Death_Info_Update</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Success Death Info Update</shortDescription>
+        <value>Life information updated</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Success_Next_Form_Assigned</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Success Next Form Assigned</shortDescription>
+        <value>Pokemon leveled up</value>
+    </labels>
+    <labels>
+        <fullName>Toast_Success_Picture_Update</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Toast Success Picture Update</shortDescription>
+        <value>Pokemon picture updated</value>
+    </labels>
+    <labels>
+        <fullName>Value_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Value_All</shortDescription>
+        <value>All</value>
+    </labels>
+</CustomLabels>
