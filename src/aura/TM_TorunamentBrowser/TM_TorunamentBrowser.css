@@ -1,0 +1,9 @@
+.THIS .action-icon {
+    padding: 1rem 1rem;
+    position: absolute;
+    right: 1rem;
+}
+
+.THIS .browser-header {
+    display: inline-block;
+}

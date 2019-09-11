@@ -1,0 +1,8 @@
+.THIS .info-paragraph {
+    padding: 0.5rem;
+    margin: 1rem 0;
+}
+
+.THIS .slds-form-element__label {
+    display: none;
+}

@@ -1,0 +1,18 @@
+<aura:component description="TM_TorunamentBrowser" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="tournaments" type="List" access="private"/>
+
+    <lightning:card variant="base">
+        <aura:set attribute="title">
+            <div class="slds-page-header">
+                <lightning:icon iconName="standard:contact_list"/>
+                <p class="slds-p-horizontal--small browser-header">{! $Label.c.TM_TournamentBrowserHeader}</p>
+            </div>
+        </aura:set>
+        <aura:set attribute="actions">
+            <div class="action-icon">
+                <lightning:buttonIcon type="button" title="{! $Label.c.Button_New}" iconClass="slds-icon--small" variant="border-filled" iconName="utility:add" alternativeText="{! $Label.c.Button_New}" onclick="{! c.onAddClick}"/>
+            </div>
+        </aura:set>
+        <c:TM_TournamentList aura:id="tournamentList"/>
+    </lightning:card>
+</aura:component>

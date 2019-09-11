@@ -1,0 +1,17 @@
+<aura:component description="TM_TournamentListItem">
+    <aura:attribute name="tournament" type="Object" access="public" required="true"/>
+
+    <aura:registerEvent type="c:TM_TournamentSelectedEvent" name="TM_TournamentSelectedEvent"/>
+
+    <div class="{! 'tournament-container' + (v.tournament.isSelected ? ' slds-theme_success' : ' slds-theme_shade slds-theme_alert-texture cursor-pointer')}" onmouseenter="{! c.toggleHover}" onmouseleave="{! c.toggleHover}" onclick="{! c.onTournamentClick}">
+        <div class="slds-grid">
+            <div class="slds-col slds-size--1-of-6">
+                <lightning:icon iconName="{! v.tournament.iconName}" alternativeText="{! $Label.c.TM_TournamentIconAltText}" size="large"/>
+            </div>
+            <div class="slds-col slds-size--5-of-6">
+                <p>{! v.tournament.name}</p>
+                <p>{! v.tournament.type}</p>
+            </div>
+        </div>
+    </div>
+</aura:component>
