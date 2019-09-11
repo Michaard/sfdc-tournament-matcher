@@ -25,8 +25,8 @@ public class TM_TournamentListController {
     }
 
     @AuraEnabled
-    public static List<TM_TournamentListController.Tournament> getTournaments() {
-        List<Tournament__c> tournaments = getTournamentsData();
+    public static List<TM_TournamentListController.Tournament> getTournaments(String tournamentName, String tournamentType) {
+        List<Tournament__c> tournaments = getTournamentsData(tournamentName, tournamentType);
         return fetchTournamentData(tournaments);
     }
 
@@ -39,11 +39,22 @@ public class TM_TournamentListController {
         return result;
     }
 
-    private static List<Tournament__c> getTournamentsData() {
-        return [
-                SELECT Id, Name, Type__c
-                FROM Tournament__c
-        ];
+    private static List<Tournament__c> getTournamentsData(String tournamentName, String tournamentType) {
+        String query = 'SELECT Id, Name, Type__c FROM Tournament__c';
+        Boolean isWhereAdded = false;
+        if (String.isNotBlank(tournamentName)) {
+            isWhereAdded = true;
+            query += ' WHERE Name LIKE \'%' + String.escapeSingleQuotes(tournamentName) + '%\'';
+        }
+        if (String.isNotBlank(tournamentType) && tournamentType != System.Label.Value_All) {
+            if (isWhereAdded) {
+                query += ' AND ';
+            } else {
+                query += ' WHERE ';
+            }
+            query += 'Type__c = \'' + tournamentType + '\'';
+        }
+        return Database.query(query);
     }
 
     private class Tournament {
@@ -51,14 +62,12 @@ public class TM_TournamentListController {
         @AuraEnabled public String name;
         @AuraEnabled public String type;
         @AuraEnabled public String iconName;
-        @AuraEnabled public Boolean isSelected;
 
         public Tournament(Tournament__c tournament) {
             this.id = tournament.Id;
             this.name = tournament.Name;
             this.type = tournament.Type__c;
             this.iconName = TYPE_TO_ICON_MAP.get(tournament.Type__c);
-            this.isSelected = false;
         }
     }
 

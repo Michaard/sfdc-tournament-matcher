@@ -20,14 +20,22 @@
     },
 
     retrieveTournaments : function(component) {
+        let tournamentNameFilter = component.get("v.tournamentNameFilter");
+        let tournamentTypeFilter = component.get("v.tournamentTypeFilter");
+
         let action = component.get("c.getTournaments");
+        action.setParams({
+            "tournamentName": tournamentNameFilter,
+            "tournamentType": tournamentTypeFilter
+        });
 
         action.setCallback(this, function(response) {
             let state = response.getState();
             if (state === "SUCCESS") {
                 let tournaments = response.getReturnValue();
-                component.set("v.allTournaments", tournaments);
-                component.set("v.filteredTournaments", tournaments);
+                component.set("v.tournaments", tournaments);
+                let selectedTournamentId = component.get("v.selectedTournamentId");
+                this.setSelectedTournament(component, selectedTournamentId);
             } else if (state === "ERROR") {
                 let errors = response.getError();
                 if (errors && errors[0] && errors[0].message) {
@@ -41,35 +49,8 @@
         component.set("v.showSpinner", true);
     },
 
-    filterTournaments : function(component) {
-        let tournamentNameFilter = component.get("v.tournamentNameFilter");
-        let tournamentTypeFilter = component.get("v.tournamentTypeFilter");
-        let tournaments = component.get("v.allTournaments");
-
-        let nameRegex = new RegExp("\\b" + tournamentNameFilter, "i");
-        tournaments = tournaments.filter(row => nameRegex.test(row.name));
-        if (tournamentTypeFilter) {
-            let typeRegex = new RegExp("^" + tournamentTypeFilter.replace(/\(|\)/g, ""), "g");
-            tournaments = tournaments.filter(row => typeRegex.test(row.type.replace(/\(|\)/g, "")));
-        }
-        component.set("v.filteredTournaments", tournaments);
-    },
-
     setSelectedTournament : function(component, selectedTournamentId) {
-        component.set("v.showSpinner", true);
-        let tournaments = component.get("v.allTournaments");
-        let tournamentsNumber = tournaments.length;
-        for (let i = 0; i < tournamentsNumber; i++) {
-            if (tournaments[i].id == selectedTournamentId) {
-                tournaments[i].isSelected = true;
-            } else {
-                tournaments[i].isSelected = false;
-            }
-        }
-
-        component.set("v.allTournaments", tournaments);
-        this.filterTournaments(component);
-        component.set("v.showSpinner", false);
+        component.set("v.selectedTournamentId", selectedTournamentId);
     },
 
     showToastAlert : function(component, variant, title, message) {
