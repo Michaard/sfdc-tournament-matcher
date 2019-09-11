@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Tournament Phase</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Tournament Phases</value>
+    </caseValues>
+    <fields>
+        <label>Additional Matches</label>
+        <name>Additional_Matches_JSON__c</name>
+    </fields>
+    <fields>
+        <help>Final and 3rd place matches will not be affected by this option</help>
+        <label>Allow Draws</label>
+        <name>Allow_Draws__c</name>
+    </fields>
+    <fields>
+        <label>Champions</label>
+        <name>Champions_JSON__c</name>
+    </fields>
+    <fields>
+        <label>Groups</label>
+        <name>Groups_JSON__c</name>
+    </fields>
+    <fields>
+        <label>Is Finished</label>
+        <name>Is_Finished__c</name>
+    </fields>
+    <fields>
+        <label>Matches</label>
+        <name>Matches_JSON__c</name>
+    </fields>
+    <fields>
+        <label>Number of Groups</label>
+        <name>Number_Of_Groups__c</name>
+    </fields>
+    <fields>
+        <label>Number of Participants</label>
+        <name>Number_Of_Participants__c</name>
+    </fields>
+    <fields>
+        <label>Participants</label>
+        <name>Participants_JSON__c</name>
+    </fields>
+    <fields>
+        <label>Points per Draw</label>
+        <name>Points_Per_Draw__c</name>
+    </fields>
+    <fields>
+        <label>Points per Lose</label>
+        <name>Points_Per_Lose__c</name>
+    </fields>
+    <fields>
+        <label>Points per Victory</label>
+        <name>Points_Per_Victory__c</name>
+    </fields>
+    <fields>
+        <label>Sequence</label>
+        <name>Sequence__c</name>
+    </fields>
+    <fields>
+        <help>Include match for 3rd place</help>
+        <label>3rd Place Match</label>
+        <name>Third_Place_Match__c</name>
+    </fields>
+    <fields>
+        <label>Tournament</label>
+        <name>Tournament__c</name>
+        <relationshipLabel>Phases</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Type</label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Battle Royale</masterLabel>
+            <translation>Battle Royale</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group</masterLabel>
+            <translation>Group</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Every match will be included with rematch</help>
+        <label>With Rematches</label>
+        <name>With_Rematches__c</name>
+    </fields>
+    <layouts>
+        <layout>Cup Layout</layout>
+        <sections>
+            <label>Custom Links</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Matches Information</label>
+            <section>Matches Information</section>
+        </sections>
+        <sections>
+            <label>Participants Information</label>
+            <section>Participants Information</section>
+        </sections>
+        <sections>
+            <label>Tournament Information</label>
+            <section>Tournament Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Group Layout</layout>
+        <sections>
+            <label>Custom Links</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Groups Information</label>
+            <section>Groups Information</section>
+        </sections>
+        <sections>
+            <label>Matches Information</label>
+            <section>Matches Information</section>
+        </sections>
+        <sections>
+            <label>Participants Information</label>
+            <section>Participants Information</section>
+        </sections>
+        <sections>
+            <label>Tournament Information</label>
+            <section>Tournament Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>League Layout</layout>
+        <sections>
+            <label>Custom Links</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>Matches Information</label>
+            <section>Matches Information</section>
+        </sections>
+        <sections>
+            <label>Participants Information</label>
+            <section>Participants Information</section>
+        </sections>
+        <sections>
+            <label>Tournament Information</label>
+            <section>Tournament Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label>Cup</label>
+        <name>Cup</name>
+    </recordTypes>
+    <recordTypes>
+        <label>Group</label>
+        <name>Group</name>
+    </recordTypes>
+    <recordTypes>
+        <label>League</label>
+        <name>League</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
