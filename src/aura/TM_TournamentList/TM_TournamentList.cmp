@@ -1,0 +1,44 @@
+<aura:component description="TM_TournamentList" controller="TM_TournamentListController">
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:attribute name="filteredTournaments" type="List" access="private"/>
+    <aura:attribute name="allTournaments" type="List" access="private"/>
+    <aura:attribute name="showSpinner" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="tournamentTypeValues" type="List" access="private"/>
+    <aura:attribute name="tournamentNameFilter" type="String" access="private" default=""/>
+    <aura:attribute name="tournamentTypeFilter" type="String" access="private"/>
+
+    <aura:handler name="init" value="{! this}" action="{! c.onInit}"/>
+    <aura:handler event="c:TM_TournamentSelectedEvent" action="{! c.handleTournamentSelectedEvent}"/>
+
+    <div class="slds-text-align--center slds-p-horizontal--large">
+        <aura:if isTrue="{! v.showSpinner}">
+            <lightning:spinner alternativeText="{! $Label.c.Spinner_Alt_Text}"/>
+        </aura:if>
+
+        <div class="slds-grid">
+            <div class="slds-col slds-size--4-of-6">
+                <lightning:input label="{! $Label.c.Label_Name}" variant="label-hidden" type="search" placeholder="{! $Label.c.TM_TournamentNamePlaceholder}" value="{! v.tournamentNameFilter}" onchange="{! c.onFilterFieldChange}" autocomplete="on"/>
+            </div>
+            <div class="slds-col slds-size--2-of-6">
+                <lightning:select label="{! $label.c.Label_Type}" variant="label-hidden" value="{! v.tournamentTypeFilter}" onchange="{! c.onFilterFieldChange}">
+                    <option value="" label="{! $Label.c.Value_All}"/>
+                    <aura:iteration items="{! v.tournamentTypeValues}" var="tournamentType">
+                        <option value="{! tournamentType.value}" label="{! tournamentType.label}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+        </div>
+
+        <div>
+            <aura:if isTrue="{! not(empty(v.filteredTournaments))}">
+                <aura:iteration items="{! v.filteredTournaments}" var="tournament">
+                    <c:TM_TournamentListItem tournament="{! tournament}"/>
+                </aura:iteration>
+                <aura:set attribute="else">
+                    <p class="info-paragraph">{! $Label.c.TM_NoTournaments}</p>
+                </aura:set>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>
