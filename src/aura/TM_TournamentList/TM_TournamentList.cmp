@@ -20,13 +20,8 @@
             <div class="slds-col slds-size--4-of-6" onkeyup="{! c.onEnterPress}">
                 <lightning:input label="{! $Label.c.Label_Name}" variant="label-hidden" type="search" placeholder="{! $Label.c.TM_TournamentNamePlaceholder}" value="{! v.tournamentNameFilter}" onchange="{! c.onFilterFieldClear}" autocomplete="on"/>
             </div>
-            <div class="slds-col slds-size--2-of-6">
-                <lightning:select label="{! $label.c.Label_Type}" variant="label-hidden" value="{! v.tournamentTypeFilter}" onchange="{! c.onFilterFieldChange}">
-                    <option value="" label="{! $Label.c.Value_All}"/>
-                    <aura:iteration items="{! v.tournamentTypeValues}" var="tournamentType">
-                        <option value="{! tournamentType.value}" label="{! tournamentType.label}"/>
-                    </aura:iteration>
-                </lightning:select>
+            <div class="slds-col slds-size--2-of-6 slds-text-align--left">
+                <lightning:combobox label="{! $Label.c.Label_Type}" variant="label-hidden" options="{! v.tournamentTypeValues}" value="{! v.tournamentTypeFilter}" onchange="{! c.onFilterFieldChange}"/>
             </div>
         </div>
 

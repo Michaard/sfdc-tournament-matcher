@@ -1,0 +1,37 @@
+<aura:component description="TM_TournamentCreator" implements="flexipage:availableForAllPageTypes">
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:attribute name="stage" type="String" access="private"/>
+
+    <aura:handler name="init" value="{! this}" action="{! c.onInit}"/>
+
+    <lightning:card class="slds-theme_shade">
+        <aura:set attribute="title">
+            <p class="slds-page-header slds-text-align--center">{! $Label.c.TM_TournamentCreatorHeader}</p>
+            <hr style="margin: 0;"/>
+        </aura:set>
+        <div class="main-container">
+            <c:TM_TournamentCreatorProgressBar currentStep="{! v.stage}"/>
+
+            <aura:if isTrue="{! v.stage eq '1'}">
+                <c:TM_TournamentCreatorBase aura:id="creatorBase"/>
+            </aura:if>
+            <aura:if isTrue="{! v.stage eq '2'}">
+                <c:TM_TournamentCreatorPhase aura:id="creatorPhase"/>
+            </aura:if>
+            <aura:if isTrue="{! v.stage eq '3'}">
+                <c:TM_TournamentCreatorPreview aura:id="creatorPreview"/>
+            </aura:if>
+
+            <div class="slds-text-align--center slds-m-vertical--medium">
+                <lightning:button label="{! $Label.c.Button_Cancel}" type="button" variant="neutral" onclick="{! c.onCancelClick}"/>
+                <lightning:button label="{! $Label.c.Button_Back}" type="button" variant="neutral" disabled="{! v.stage eq '1'}" onclick="{! c.onBackClick}"/>
+                <aura:if isTrue="{! not(v.stage eq '3')}">
+                    <lightning:button label="{! $Label.c.Button_Next}" type="button" variant="brand" onclick="{! c.onNextClick}"/>
+                    <aura:set attribute="else">
+                        <lightning:button label="{! $Label.c.Button_Save}" type="button" variant="brand" onclick="{! c.onSaveClick}"/>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>

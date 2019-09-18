@@ -1,0 +1,38 @@
+<aura:component description="TM_TournamentCreatorPhase">
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:attribute name="showSpinner" type="Boolean" access="private"/>
+    <aura:attribute name="allowDraws" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="withRematches" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="thirdPlaceMatch" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="pointsPerVictory" type="Integer" access="private" default="3"/>
+    <aura:attribute name="pointsPerDraw" type="Integer" access="private" default="1"/>
+    <aura:attribute name="pointsPerLose" type="Integer" access="private" default="0"/>
+    <aura:attribute name="numberOfGroups" type="String" access="private" default="2"/>
+    <aura:attribute name="tournamentType" type="String" access="private"/>
+    <aura:attribute name="numberOfParticipants" type="Integer" access="private"/>
+    <aura:attribute name="numberOfGroupsList" type="List" access="private"/>
+
+    <aura:handler name="init" value="{! this}" action="{! c.onInit}"/>
+
+    <aura:method name="save" action="{! c.onSave}" access="public"/>
+
+    <div class="slds-m-vertical--medium">
+        <aura:if isTrue="{! v.showSpinner}">
+            <lightning:spinner alternativeText="{! $Label.c.Spinner_Alt_Text}"/>
+        </aura:if>
+        <lightning:input label="{! $Label.c.TM_Label_Allow_Draws}" type="checkbox" value="{! v.allowDraws}" checked="{! v.allowDraws}"/>
+        <lightning:input label="{! $Label.c.TM_Label_With_Rematches}" type="checkbox" value="{! v.withRematches}" checked="{! v.withRematches}"/>
+        <aura:if isTrue="{! or(v.tournamentType eq $Label.c.TM_Label_Cup, v.tournamentType eq $Label.c.TM_Label_Cup_Groups)}">
+            <lightning:input label="{! $Label.c.TM_Label_Third_Place_Match}" type="checkbox" value="{! v.thirdPlaceMatch}" checked="{! v.thirdPlaceMatch}"/>
+        </aura:if>
+        <aura:if isTrue="{! v.tournamentType eq $Label.c.TM_Label_Cup_Groups}">
+            <lightning:combobox label="{! $Label.c.TM_Label_Number_Of_Groups}" options="{! v.numberOfGroupsList}" value="{! v.numberOfGroups}"/>
+        </aura:if>
+        <aura:if isTrue="{! not(v.tournamentType eq $Label.c.TM_Label_Cup)}">
+            <lightning:input label="{! $Label.c.TM_Label_Point_Victory}" type="number" value="{! v.pointsPerVictory}" min="0"/>
+            <lightning:input label="{! $Label.c.TM_Label_Point_Draw}" type="number" value="{! v.pointsPerDraw}" disabled="{! not(v.allowDraws)}"/>
+            <lightning:input label="{! $Label.c.TM_Label_Point_Lose}" type="number" value="{! v.pointsPerLose}"/>
+        </aura:if>
+    </div>
+</aura:component>

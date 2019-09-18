@@ -12,15 +12,11 @@ public class TM_TournamentListController {
     };
 
     @AuraEnabled
-    public static List<TM_TournamentListController.TournamentType> getTournamentTypePicklistValues() {
-        Schema.DescribeFieldResult typeField = Tournament__c.Type__c.getDescribe();
-        List<Schema.PicklistEntry> picklistValues = typeField.getPicklistValues();
-
-        List<TM_TournamentListController.TournamentType> result = new List<TM_TournamentListController.TournamentType>();
-        for (Schema.PicklistEntry picklistValue : picklistValues) {
-            result.add(new TM_TournamentListController.TournamentType(picklistValue));
-        }
-
+    public static List<TM_TournamentType> getTournamentTypePicklistValues() {
+        List<TM_TournamentType> tournamentTypes = TM_TournamentType.getPicklistValues();
+        List<TM_TournamentType> result = new List<TM_TournamentType>();
+        result.add(new TM_TournamentType(System.Label.Value_All, ''));
+        result.addAll(tournamentTypes);
         return result;
     }
 
@@ -68,16 +64,6 @@ public class TM_TournamentListController {
             this.name = tournament.Name;
             this.type = tournament.Type__c;
             this.iconName = TYPE_TO_ICON_MAP.get(tournament.Type__c);
-        }
-    }
-
-    private class TournamentType {
-        @AuraEnabled public String label;
-        @AuraEnabled public String value;
-
-        public TournamentType(Schema.PicklistEntry picklistEntry) {
-            this.label = picklistEntry.label;
-            this.value = picklistEntry.value;
         }
     }
 }

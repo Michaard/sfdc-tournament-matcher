@@ -1,0 +1,43 @@
+<aura:component description="TM_TournamentCreatorPreview">
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:attribute name="showSpinner" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="tournamentData" type="Object" access="private"/>
+    <aura:attribute name="phaseData" type="Object" access="private"/>
+    <aura:attribute name="participantsList" type="List" access="private"/>
+
+    <aura:handler name="init" value="{! this}" action="{! c.onInit}"/>
+
+    <div>
+        <div class="slds-m-vertical--medium slds-grid">
+            <aura:if isTrue="{! v.showSpinner}">
+                <lightning:spinner alternativeText="{! $Label.c.Spinner_Alt_Text}"/>
+            </aura:if>
+            <div class="slds-col slds-size--1-of-2">
+                <p>{! $Label.c.TM_Label_Tournament_Name}: {! v.tournamentData.name}</p>
+                <p>{! $Label.c.TM_Label_Tournament_Type}: {! v.tournamentData.type}</p>
+                <p>{! $Label.c.TM_Label_Number_Of_Participants}: {! v.participantsList.length}</p>
+                <aura:if isTrue="{! v.tournamentData.type eq $Label.c.TM_Label_Cup_Groups}">
+                    <p>{! $Label.c.TM_Label_Number_Of_Groups}: {! v.phaseData.numberOfGroups}</p>
+                </aura:if>
+            </div>
+            <div class="slds-col slds-size--1-of-2">
+            <p>{! $Label.c.TM_Label_Allow_Draws}: {! v.phaseData.allowDraws ? 'Yes' : 'No'}</p>
+            <p>{! $Label.c.TM_Label_With_Rematches}: {! v.phaseData.withRematches ? 'Yes' : 'No'}</p>
+                <aura:if isTrue="{! or(v.tournamentData.type eq $Label.c.TM_Label_Cup, v.tournamentData.type eq $Label.c.TM_Label_Cup_Groups)}">
+                    <p>{! $Label.c.TM_Label_Third_Place_Match}: {! v.phaseData.thirdPlaceMatch ? 'Yes' : 'No'}</p>
+                </aura:if>
+                <aura:if isTrue="{! not(v.tournamentData.type eq $Label.c.TM_Label_Cup)}">
+                    <p>{! $Label.c.TM_Label_Point_Victory}: {! v.phaseData.pointsPerVictory}</p>
+                    <aura:if isTrue="{! v.phaseData.allowDraws}">
+                        <p>{! $Label.c.TM_Label_Point_Draw}: {! v.phaseData.pointsPerDraw}</p>
+                    </aura:if>
+                    <p>{! $Label.c.TM_Label_Point_Lose}: {! v.phaseData.pointsPerLose}</p>
+                </aura:if>
+            </div>
+        </div>
+        <div class="slds-text-align--center">
+            <lightning:buttonIcon alternativeText="{! $Label.c.Button_Regenerate}" iconName="utility:replace" variant="brand" title="{! $Label.c.Button_Regenerate}" iconClass="slds-icon--small"/>
+        </div>
+    </div>
+</aura:component>

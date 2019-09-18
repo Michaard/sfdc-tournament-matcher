@@ -1,0 +1,9 @@
+<aura:component description="TM_TournamentCreatorProgressBar">
+    <aura:attribute name="currentStep" type="String" default="1" access="public"/>
+
+    <lightning:progressIndicator currentStep="{! v.currentStep}" type="base" variant="shaded">
+        <lightning:progressStep label="{! $Label.c.TM_TournamentSetup}" value="1"/>
+        <lightning:progressStep label="{! $Label.c.TM_PhaseSetup}" value="2"/>
+        <lightning:progressStep label="{! $Label.c.TM_FinalSteps}" value="3"/>
+    </lightning:progressIndicator>
+</aura:component>

@@ -1,0 +1,22 @@
+<aura:component description="TM_TournamentCreatorBase" controller="TM_TournamentCreatorBaseController">
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:attribute name="showSpinner" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="tournamentTypeValues" type="List" access="private"/>
+    <aura:attribute name="tournamentName" type="String" access="private"/>
+    <aura:attribute name="tournamentType" type="String" access="private"/>
+    <aura:attribute name="participants" type="String" access="private"/>
+
+    <aura:handler name="init" value="{! this}" action="{! c.onInit}"/>
+
+    <aura:method name="save" action="{! c.onSave}" access="public"/>
+
+    <div class="slds-m-vertical--medium">
+        <aura:if isTrue="{! v.showSpinner}">
+            <lightning:spinner alternativeText="{! $Label.c.Spinner_Alt_Text}"/>
+        </aura:if>
+        <lightning:input label="{! $Label.c.Label_Name}" type="text" value="{! v.tournamentName}" placeholder="{! $Label.c.TM_TournamentNamePlaceholder}" maxlength="80"/>
+        <lightning:combobox label="{! $Label.c.Label_Type}" options="{! v.tournamentTypeValues}" value="{! v.tournamentType}"/>
+        <lightning:textarea label="{! $Label.c.TM_Label_Participants}" placeholder="{! $Label.c.TM_ParticipantsPlaceholder}" value="{! v.participants}"/>
+    </div>
+</aura:component>
