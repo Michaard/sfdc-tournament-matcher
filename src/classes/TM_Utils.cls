@@ -8,8 +8,8 @@ public class TM_Utils {
     public static final String TOURNAMENT_TYPE_BR = 'Battle Royale';
     public static final String TOURNAMENT_TYPE_LEAGUE = 'League';
 
-    public static List<Object> shuffleItems(List<Object> itemsToGroup) {
-        Integer currentIndex = itemsToGroup.size();
+    public static List<Object> shuffleItems(List<Object> items) {
+        Integer currentIndex = items.size();
         Object tempItem;
         Integer randomIndex;
 
@@ -17,11 +17,11 @@ public class TM_Utils {
             randomIndex = Integer.valueOf(Math.floor(Math.random() * currentIndex));
             currentIndex--;
 
-            tempItem = itemsToGroup.get(currentIndex);
-            itemsToGroup.set(currentIndex, itemsToGroup.get(randomIndex));
-            itemsToGroup.set(randomIndex, tempItem);
+            tempItem = items.get(currentIndex);
+            items.set(currentIndex, items.get(randomIndex));
+            items.set(randomIndex, tempItem);
         }
 
-        return itemsToGroup;
+        return items;
     }
 }
