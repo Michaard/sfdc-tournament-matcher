@@ -1,0 +1,44 @@
+<aura:component description="TM_GroupTable">
+    <aura:attribute name="group" type="Object" access="public"/>
+    <aura:attribute name="allowDraws" type="Boolean" access="public"/>
+    <aura:attribute name="displayAllColumns" type="Boolean" access="public" default="true"/>
+
+    <table class="group-table">
+        <aura:if isTrue="{! v.displayAllColumns}">
+            <caption style="font-weight: bold;">{! v.group.name}</caption>
+        </aura:if>
+        <thead>
+            <tr class="table-border table-head">
+                <aura:if isTrue="{! v.displayAllColumns}">
+                    <th>Contestant</th>
+                    <th>Matches</th>
+                    <th>Wins</th>
+                    <aura:if isTrue="{! v.allowDraws}">
+                        <th>Draws</th>
+                    </aura:if>
+                    <th>Loses</th>
+                    <th>Account</th>
+                    <th>Score</th>
+                    <aura:set attribute="else">
+                        <th>{! v.group.name}</th>
+                    </aura:set>
+                </aura:if>
+            </tr>
+        </thead>
+        <aura:iteration items="{! v.group.contestants}" var="contestant">
+            <tr class="table-border">
+                <td>{! contestant.name}</td>
+                <aura:if isTrue="{! v.displayAllColumns}">
+                    <td>{! contestant.matchesTaken}</td>
+                    <td>{! contestant.wins}</td>
+                    <aura:if isTrue="{! v.allowDraws}">
+                        <td>{! contestant.draws}</td>
+                    </aura:if>
+                    <td>{! contestant.loses}</td>
+                    <td>{! contestant.account}</td>
+                    <td>{! contestant.score}</td>
+                </aura:if>
+            </tr>
+        </aura:iteration>
+    </table>
+</aura:component>

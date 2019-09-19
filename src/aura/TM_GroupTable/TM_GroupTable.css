@@ -1,0 +1,19 @@
+.THIS.group-table {
+    margin-top: 1rem;
+    background-color: rgb(255, 255, 255);
+}
+
+.THIS .table-head {
+    background-color: rgb(250, 250, 249);
+    font-weight: 700;
+}
+
+.THIS .table-border {
+    border: 1px solid rgba(0,0,0,0.2);
+    border-collapse: collapse;
+}
+
+.THIS th, .THIS td {
+    padding: 0.4rem;
+    width: 15%;
+}

@@ -1,10 +1,11 @@
-<aura:component description="TM_TournamentCreatorPreview">
+<aura:component description="TM_TournamentCreatorPreview" controller="TM_TournamentCreatorController">
     <lightning:notificationsLibrary aura:id="notifLib"/>
 
     <aura:attribute name="showSpinner" type="Boolean" access="private" default="false"/>
     <aura:attribute name="tournamentData" type="Object" access="private"/>
     <aura:attribute name="phaseData" type="Object" access="private"/>
     <aura:attribute name="participantsList" type="List" access="private"/>
+    <aura:attribute name="previewData" type="List" access="private"/>
 
     <aura:handler name="init" value="{! this}" action="{! c.onInit}"/>
 
@@ -37,7 +38,14 @@
             </div>
         </div>
         <div class="slds-text-align--center">
-            <lightning:buttonIcon alternativeText="{! $Label.c.Button_Regenerate}" iconName="utility:replace" variant="brand" title="{! $Label.c.Button_Regenerate}" iconClass="slds-icon--small"/>
+            <lightning:buttonIcon alternativeText="{! $Label.c.Button_Regenerate}" iconName="utility:replace" variant="brand" title="{! $Label.c.Button_Regenerate}" iconClass="slds-icon--small" onclick="{! c.onRegenerateClick}"/>
+        </div>
+        <div class="slds-text-align--center">
+            <aura:iteration items="{! v.previewData}" var="group">
+                <div class="slds-size--1-of-5 slds-m-horizontal--small slds-align-top" style="display: inline-block;">
+                    <c:TM_GroupTable group="{! group}" allowDraws="{! v.phaseData.allowDraws}" displayAllColumns="false"/>
+                </div>
+            </aura:iteration>
         </div>
     </div>
 </aura:component>

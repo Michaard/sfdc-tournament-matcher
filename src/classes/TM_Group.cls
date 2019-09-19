@@ -4,12 +4,14 @@ public class TM_Group {
     @AuraEnabled public TM_GroupMatchContestant firstPlace { get; private set; }
     @AuraEnabled public TM_GroupMatchContestant secondPlace { get; private set; }
     @AuraEnabled public Boolean isResolved { get; private set; }
+    @AuraEnabled public Boolean isRematchable { get; private set; }
     public Integer numberOfMatchesPerContestant { get; private set; }
 
-    public TM_Group(String name) {
+    public TM_Group(String name, Boolean isRematchable) {
         this.name = name;
         this.contestants = new List<TM_GroupMatchContestant>();
         this.isResolved = false;
+        this.isRematchable = isRematchable;
         this.calculateNumberOfMatchesPerContestant();
     }
 
@@ -50,6 +52,9 @@ public class TM_Group {
         if (this.contestants != null) {
             Integer numberOfContestants = contestants.size();
             this.numberOfMatchesPerContestant = (numberOfContestants > 0) ? (numberOfContestants - 1) : 0;
+            if (this.isRematchable) {
+                this.numberOfMatchesPerContestant *= 2;
+            }
         }
     }
 }

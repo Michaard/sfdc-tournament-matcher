@@ -4,6 +4,6 @@
     },
 
     onRegenerateClick : function(component, event, helper) {
-
+        helper.generatePreview(component);
     }
 })

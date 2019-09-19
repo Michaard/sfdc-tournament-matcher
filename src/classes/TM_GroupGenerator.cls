@@ -4,10 +4,12 @@ public class TM_GroupGenerator {
     private List<String> itemsToGroup;
     private Integer numberOfGroups;
     private Integer currentGroupIndex;
+    private Boolean generateRematches;
 
-    public TM_GroupGenerator(List<String> itemsToGroup, Integer numberOfGroups) {
+    public TM_GroupGenerator(List<String> itemsToGroup, Integer numberOfGroups, Boolean generateRematches) {
         this.itemsToGroup = itemsToGroup;
         this.numberOfGroups = numberOfGroups;
+        this.generateRematches = generateRematches;
         this.resetCurrentGroupIndex();
     }
 
@@ -18,6 +20,14 @@ public class TM_GroupGenerator {
         return this.groups;
     }
 
+    public String getGroupsInJson() {
+        if (this.groups != null) {
+            return JSON.serialize(this.groups);
+        } else {
+            return null;
+        }
+    }
+
     private void shuffleItems() {
         TM_Utils.shuffleItems(this.itemsToGroup);
     }
@@ -26,7 +36,7 @@ public class TM_GroupGenerator {
         this.groups = new List<TM_Group>();
         for (Integer i = 0; i < this.numberOfGroups; i++) {
             String groupName = this.generateGroupName(i);
-            this.groups.add(new TM_Group(groupName));
+            this.groups.add(new TM_Group(groupName, this.generateRematches));
         }
     }
 
