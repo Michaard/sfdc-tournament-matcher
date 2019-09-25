@@ -5,10 +5,10 @@ public class TM_TournamentListController {
     private static final String ICON_LEAGUE = 'standard:action_list_component';
 
     private static final Map<String, String> TYPE_TO_ICON_MAP = new Map<String, String> {
-            TM_Utils.TOURNAMENT_TYPE_CUP => ICON_CUP,
-            TM_Utils.TOURNAMENT_TYPE_CWG => ICON_CWG,
-            TM_Utils.TOURNAMENT_TYPE_BR => ICON_BR,
-            TM_Utils.TOURNAMENT_TYPE_LEAGUE => ICON_LEAGUE
+            System.Label.TM_Label_Cup => ICON_CUP,
+            System.Label.TM_Label_Cup_Groups => ICON_CWG,
+            System.Label.TM_Label_Battle_Royale => ICON_BR,
+            System.Label.TM_Label_League => ICON_LEAGUE
     };
 
     @AuraEnabled

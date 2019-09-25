@@ -9,26 +9,17 @@
 
     generatePreview : function(component) {
         let tournamentType = component.get("v.tournamentData").type;
-        if (tournamentType === $A.get("$Label.c.TM_Label_Cup_Groups")) {
-            this.generateGroups(component);
-        }
-    },
-
-    generateGroups : function(component) {
         let tournamentData = component.get("v.tournamentData");
         let phaseData = component.get("v.phaseData");
 
-        let action = component.get("c.generateGroups");
+        let action = component.get("c.generatePreview");
         action.setParams({
+            tournamentType: tournamentType,
             participants: tournamentData.participants,
             numberOfGroups: Number(phaseData.numberOfGroups),
             withRematches: phaseData.withRematches
         });
 
-        this.runGeneration(component, action);
-    },
-
-    runGeneration : function(component, action) {
         action.setCallback(this, function(response) {
             let state = response.getState();
             if (state === "SUCCESS") {
