@@ -21,7 +21,9 @@
         <aura:if isTrue="{! v.showSpinner}">
             <lightning:spinner alternativeText="{! $Label.c.Spinner_Alt_Text}"/>
         </aura:if>
-        <lightning:input label="{! $Label.c.TM_Label_Allow_Draws}" type="checkbox" value="{! v.allowDraws}" checked="{! v.allowDraws}"/>
+        <aura:if isTrue="{! not(v.tournamentType eq $Label.c.TM_Label_Cup)}">
+            <lightning:input label="{! $Label.c.TM_Label_Allow_Draws}" type="checkbox" value="{! v.allowDraws}" checked="{! v.allowDraws}"/>
+        </aura:if>
         <lightning:input label="{! $Label.c.TM_Label_With_Rematches}" type="checkbox" value="{! v.withRematches}" checked="{! v.withRematches}"/>
         <aura:if isTrue="{! or(v.tournamentType eq $Label.c.TM_Label_Cup, v.tournamentType eq $Label.c.TM_Label_Cup_Groups)}">
             <lightning:input label="{! $Label.c.TM_Label_Third_Place_Match}" type="checkbox" value="{! v.thirdPlaceMatch}" checked="{! v.thirdPlaceMatch}"/>

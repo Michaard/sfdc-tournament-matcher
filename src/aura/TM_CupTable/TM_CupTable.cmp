@@ -1,0 +1,12 @@
+<aura:component description="TM_CupTable">
+    <aura:attribute name="matches" type="List" access="public"/>
+    <aura:attribute name="displayAllRounds" type="Boolean" access="public" default="true"/>
+
+    <table class="cup-table">
+        <aura:iteration items="{! v.matches}" var="match">
+            <div style="border: 1px solid black;">
+                {! match.contestantA.name} vs {! match.contestantB.name}
+            </div>
+        </aura:iteration>
+    </table>
+</aura:component>

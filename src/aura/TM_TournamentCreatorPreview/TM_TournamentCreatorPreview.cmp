@@ -23,8 +23,10 @@
                 </aura:if>
             </div>
             <div class="slds-col slds-size--1-of-2">
-            <p>{! $Label.c.TM_Label_Allow_Draws}: {! v.phaseData.allowDraws ? 'Yes' : 'No'}</p>
-            <p>{! $Label.c.TM_Label_With_Rematches}: {! v.phaseData.withRematches ? 'Yes' : 'No'}</p>
+                <aura:if isTrue="{! not(v.tournamentData.type eq $Label.c.TM_Label_Cup)}">
+                    <p>{! $Label.c.TM_Label_Allow_Draws}: {! v.phaseData.allowDraws ? 'Yes' : 'No'}</p>
+                </aura:if>
+                <p>{! $Label.c.TM_Label_With_Rematches}: {! v.phaseData.withRematches ? 'Yes' : 'No'}</p>
                 <aura:if isTrue="{! or(v.tournamentData.type eq $Label.c.TM_Label_Cup, v.tournamentData.type eq $Label.c.TM_Label_Cup_Groups)}">
                     <p>{! $Label.c.TM_Label_Third_Place_Match}: {! v.phaseData.thirdPlaceMatch ? 'Yes' : 'No'}</p>
                 </aura:if>
@@ -41,14 +43,17 @@
             <lightning:buttonIcon alternativeText="{! $Label.c.Button_Regenerate}" iconName="utility:replace" variant="brand" title="{! $Label.c.Button_Regenerate}" iconClass="slds-icon--small" onclick="{! c.onRegenerateClick}"/>
         </div>
 
-        <aura:if isTrue="{! v.tournamentData.type eq $Label.c.TM_Label_Cup_Groups}">
-            <div class="slds-text-align--center">
-                <aura:iteration items="{! v.previewData}" var="group">
+        <div class="slds-text-align--center">
+            <aura:if isTrue="{! v.tournamentData.type eq $Label.c.TM_Label_Cup}">
+                <c:TM_CupTable matches="{! v.previewData}" displayAllRounds="false"/>
+            </aura:if>
+            <aura:if isTrue="{! v.tournamentData.type eq $Label.c.TM_Label_Cup_Groups}">
+                <aura:iteration items="{! v.previewData}" var="data">
                     <div class="slds-size--1-of-5 slds-m-horizontal--small slds-align-top" style="display: inline-block;">
-                        <c:TM_GroupTable group="{! group}" allowDraws="{! v.phaseData.allowDraws}" displayAllColumns="false"/>
+                        <c:TM_GroupTable group="{! data}" allowDraws="{! v.phaseData.allowDraws}" displayAllColumns="false"/>
                     </div>
                 </aura:iteration>
-            </div>
-        </aura:if>
+            </aura:if>
+        </div>
     </div>
 </aura:component>
