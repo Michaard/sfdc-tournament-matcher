@@ -10,7 +10,6 @@
     generatePreview : function(component) {
         let tournamentType = component.get("v.tournamentData").type;
         if (tournamentType === $A.get("$Label.c.TM_Label_Cup_Groups")) {
-            console.log("ALOLA");
             this.generateGroups(component);
         }
     },
@@ -40,7 +39,7 @@
             } else if (state === "ERROR") {
                 let errors = response.getError();
                 if (errors && errors[0] && errors[0].message) {
-                    this.showToastAlert(component, "error", "Error", errors[0].message);
+                    this.showToastAlert(component, "error", $A.get("$Label.c.Label_Error"), errors[0].message);
                 }
             }
             component.set("v.showSpinner", false);
@@ -51,7 +50,7 @@
     },
 
     loadTournamentData : function(component) {
-        let tournamentJson = sessionStorage.getItem("tournament");
+        let tournamentJson = sessionStorage.getItem($A.get("$Label.c.TM_TournamentSessionKey"));
         if (tournamentJson) {
             let tournament = JSON.parse(tournamentJson);
             let participantsList = tournament.participants.split("\n");
@@ -61,7 +60,7 @@
     },
 
     loadPhaseData : function(component) {
-        let phaseJson = sessionStorage.getItem("tournamentPhase");
+        let phaseJson = sessionStorage.getItem($A.get("$Label.c.TM_TournamentPhaseSessionKey"));
         if (phaseJson) {
             let phase = JSON.parse(phaseJson);
             component.set("v.phaseData", phase);

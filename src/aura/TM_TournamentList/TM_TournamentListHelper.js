@@ -9,7 +9,7 @@
             } else if (state === "ERROR") {
                 let errors = response.getError();
                 if (errors && errors[0] && errors[0].message) {
-                    this.showToastAlert(component, "error", "Error", errors[0].message);
+                    this.showToastAlert(component, "error", $A.get("$Label.c.Label_Error"), errors[0].message);
                 }
             }
             component.set("v.showSpinner", false);
@@ -39,7 +39,7 @@
             } else if (state === "ERROR") {
                 let errors = response.getError();
                 if (errors && errors[0] && errors[0].message) {
-                    this.showToastAlert(component, "error", "Error", errors[0].message);
+                    this.showToastAlert(component, "error", $A.get("$Label.c.Label_Error"), errors[0].message);
                 }
             }
             component.set("v.showSpinner", false);

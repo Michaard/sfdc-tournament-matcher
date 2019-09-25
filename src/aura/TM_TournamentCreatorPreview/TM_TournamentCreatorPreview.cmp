@@ -40,12 +40,15 @@
         <div class="slds-text-align--center">
             <lightning:buttonIcon alternativeText="{! $Label.c.Button_Regenerate}" iconName="utility:replace" variant="brand" title="{! $Label.c.Button_Regenerate}" iconClass="slds-icon--small" onclick="{! c.onRegenerateClick}"/>
         </div>
-        <div class="slds-text-align--center">
-            <aura:iteration items="{! v.previewData}" var="group">
-                <div class="slds-size--1-of-5 slds-m-horizontal--small slds-align-top" style="display: inline-block;">
-                    <c:TM_GroupTable group="{! group}" allowDraws="{! v.phaseData.allowDraws}" displayAllColumns="false"/>
-                </div>
-            </aura:iteration>
-        </div>
+
+        <aura:if isTrue="{! v.tournamentData.type eq $Label.c.TM_Label_Cup_Groups}">
+            <div class="slds-text-align--center">
+                <aura:iteration items="{! v.previewData}" var="group">
+                    <div class="slds-size--1-of-5 slds-m-horizontal--small slds-align-top" style="display: inline-block;">
+                        <c:TM_GroupTable group="{! group}" allowDraws="{! v.phaseData.allowDraws}" displayAllColumns="false"/>
+                    </div>
+                </aura:iteration>
+            </div>
+        </aura:if>
     </div>
 </aura:component>

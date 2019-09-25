@@ -1,4 +1,4 @@
-<aura:component description="TM_TournamentCreatorBase" controller="TM_TournamentCreatorBaseController">
+<aura:component description="TM_TournamentCreatorBase" controller="TM_TournamentCreatorController">
     <lightning:notificationsLibrary aura:id="notifLib"/>
 
     <aura:attribute name="showSpinner" type="Boolean" access="private" default="false"/>

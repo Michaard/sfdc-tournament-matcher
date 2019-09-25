@@ -1,26 +1,27 @@
-public class TM_GroupGenerator {
+public class TM_GroupGenerator extends TM_PhaseGenerator {
     private static final Integer ASCII_SEED = 65;
     private List<TM_Group> groups;
-    private List<String> itemsToGroup;
     private Integer numberOfGroups;
     private Integer currentGroupIndex;
-    private Boolean generateRematches;
 
-    public TM_GroupGenerator(List<String> itemsToGroup, Integer numberOfGroups, Boolean generateRematches) {
-        this.itemsToGroup = itemsToGroup;
+    public TM_GroupGenerator(List<String> items, Integer numberOfGroups, Boolean generateRematches) {
+        super(items, generateRematches);
         this.numberOfGroups = numberOfGroups;
-        this.generateRematches = generateRematches;
         this.resetCurrentGroupIndex();
     }
 
-    public List<TM_Group> generate() {
-        this.generateGroups();
-        this.shuffleItems();
-        this.assignItemsToGroups();
-        return this.groups;
+    public override List<Object> generate() {
+        if (this.areItemsValid()) {
+            this.generateGroups();
+            this.shuffleItems();
+            this.assignItemsToGroups();
+            return this.groups;
+        } else {
+            throw new TM_GroupGeneratorException(System.Label.TM_InvalidParticipantsData);
+        }
     }
 
-    public String getGroupsInJson() {
+    public override String toJson() {
         if (this.groups != null) {
             return JSON.serialize(this.groups);
         } else {
@@ -28,8 +29,15 @@ public class TM_GroupGenerator {
         }
     }
 
-    private void shuffleItems() {
-        TM_Utils.shuffleItems(this.itemsToGroup);
+    protected override Boolean areItemsValid() {
+        Integer numberOfItems = this.items.size();
+        if (numberOfItems < 4 || numberOfItems > 64) {
+            return false;
+        } else if (numberOfItems/this.numberOfGroups < 2) {
+            return false;
+        }
+
+        return true;
     }
 
     private void generateGroups() {
@@ -41,7 +49,7 @@ public class TM_GroupGenerator {
     }
 
     private void assignItemsToGroups() {
-        for (String item : this.itemsToGroup) {
+        for (String item : this.items) {
             TM_Group currentGroup = this.getCurrentGroup();
             if (currentGroup != null) {
                 currentGroup.addContestant(new TM_GroupMatchContestant(item));
@@ -68,4 +76,6 @@ public class TM_GroupGenerator {
     private void resetCurrentGroupIndex() {
         this.currentGroupIndex = 0;
     }
+
+    public class TM_GroupGeneratorException extends Exception {}
 }

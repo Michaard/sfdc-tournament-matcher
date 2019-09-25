@@ -34,20 +34,20 @@
     },
 
     validatePhaseOne : function(component) {
-        let tournamentBaseJson = sessionStorage.getItem("tournament");
+        let tournamentBaseJson = sessionStorage.getItem($A.get("$Label.c.TM_TournamentSessionKey"));
         if (tournamentBaseJson) {
             let tournamentBase = JSON.parse(tournamentBaseJson);
             if (tournamentBase.name && tournamentBase.type && tournamentBase.participants) {
                 return this.validateParticipants(component, tournamentBase);
             } else {
-                this.showToastAlert(component, "warning", "Invalid data", $A.get("$Label.c.TM_CreatorBaseErrorMissingField"));
+                this.showToastAlert(component, "warning", $A.get("$Label.c.Label_Invalid_Data"), $A.get("$Label.c.TM_CreatorBaseErrorMissingField"));
                 return false;
             }
         }
     },
 
     validatePhaseTwo : function(component) {
-        let tournamentPhaseJson = sessionStorage.getItem("tournamentPhase");
+        let tournamentPhaseJson = sessionStorage.getItem($A.get("$Label.c.TM_TournamentPhaseSessionKey"));
         if (tournamentPhaseJson) {
             let tournamentPhase = JSON.parse(tournamentPhaseJson);
             let allowDraws = tournamentPhase.allowDraws;
@@ -58,7 +58,7 @@
                 if ((pointsPerVictory > pointsPerLose) && !(allowDraws && (pointsPerDraw >= pointsPerVictory || pointsPerLose >= pointsPerDraw))) {
                     return true;
                 } else {
-                    this.showToastAlert(component, "warning", "Invalid data", "Points per victory must be greater than points per draw/lose, and points per draw must be greater than points per lose");
+                    this.showToastAlert(component, "warning", $A.get("$Label.c.Label_Invalid_Data"), $A.get("$Label.c.TM_InvalidPointScore"));
                     return false;
                 }
             } else {

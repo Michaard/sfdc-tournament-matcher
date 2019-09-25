@@ -24,7 +24,7 @@
     },
 
     loadTournamentData : function(component) {
-        let tournamentJson = sessionStorage.getItem("tournament");
+        let tournamentJson = sessionStorage.getItem($A.get("$Label.c.TM_TournamentSessionKey"));
         if (tournamentJson) {
             let tournament = JSON.parse(tournamentJson);
             component.set("v.tournamentType", tournament.type);
@@ -33,7 +33,7 @@
     },
 
     loadPhaseData : function(component) {
-        let tournamentPhaseJson = sessionStorage.getItem("tournamentPhase");
+        let tournamentPhaseJson = sessionStorage.getItem($A.get("$Label.c.TM_TournamentPhaseSessionKey"));
         if (tournamentPhaseJson) {
             let tournamentPhase = JSON.parse(tournamentPhaseJson);
             component.set("v.allowDraws", tournamentPhase.allowDraws);
@@ -65,6 +65,6 @@
             numberOfGroups: numberOfGroups
         };
 
-        sessionStorage.setItem("tournamentPhase", JSON.stringify(tournamentPhase));
+        sessionStorage.setItem($A.get("$Label.c.TM_TournamentPhaseSessionKey"), JSON.stringify(tournamentPhase));
     }
 })

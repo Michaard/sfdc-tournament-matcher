@@ -1,6 +1,6 @@
 public class TM_CupMatch extends TM_Match {
-    @AuraEnabled public TM_CupMatch previousMatchA { get; private set; }
-    @AuraEnabled public TM_CupMatch previousMatchB { get; private set; }
+    @AuraEnabled public Integer previousMatchANr { get; private set; }
+    @AuraEnabled public Integer previousMatchBNr { get; private set; }
     @AuraEnabled public TM_StandardMatchContestant contestantA { get; private set; }
     @AuraEnabled public TM_StandardMatchContestant contestantB { get; private set; }
     @AuraEnabled public TM_StandardMatchContestant winner { get; private set; }
@@ -13,9 +13,8 @@ public class TM_CupMatch extends TM_Match {
 
     public TM_CupMatch(Integer matchNr, Boolean isRematchable, TM_CupMatch previousMatchA, TM_CupMatch previousMatchB) {
         super(matchNr, isRematchable);
-        this.previousMatchA = previousMatchA;
-        this.previousMatchB = previousMatchB;
-        this.setContestants();
+        this.previousMatchANr = previousMatchA.matchNr;
+        this.previousMatchBNr = previousMatchB.matchNr;
     }
 
     public void setCupMatchResult(Integer contestantAScore, Integer contestantBScore) {
@@ -30,20 +29,20 @@ public class TM_CupMatch extends TM_Match {
         }
     }
 
-    public void setContestants() {
-        this.setContestantA();
-        this.setContestantB();
+    public void setContestants(TM_StandardMatchContestant contestantA, TM_StandardMatchContestant contestantB) {
+        this.setContestantA(contestantA);
+        this.setContestantB(contestantB);
     }
 
-    private void setContestantA() {
-        if (this.previousMatchA != null && this.previousMatchA.winner != null) {
-            this.contestantA = this.previousMatchA.winner;
+    private void setContestantA(TM_StandardMatchContestant contestant) {
+        if (contestant != null) {
+            this.contestantA = contestant;
         }
     }
 
-    private void setContestantB() {
-        if (this.previousMatchB != null && this.previousMatchB.winner != null) {
-            this.contestantB = this.previousMatchB.winner;
+    private void setContestantB(TM_StandardMatchContestant contestant) {
+        if (contestant != null) {
+            this.contestantB = contestant;
         }
     }
 
