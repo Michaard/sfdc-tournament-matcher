@@ -40,14 +40,11 @@ public class TM_TournamentListController {
         Boolean isWhereAdded = false;
         if (String.isNotBlank(tournamentName)) {
             isWhereAdded = true;
-            query += ' WHERE Name LIKE \'%' + String.escapeSingleQuotes(tournamentName) + '%\'';
+            query += ' WHERE (Name LIKE \'' + String.escapeSingleQuotes(tournamentName) + '%\'';
+            query += ' OR Name LIKE \'% ' + String.escapeSingleQuotes(tournamentName) + '%\')';
         }
         if (String.isNotBlank(tournamentType) && tournamentType != System.Label.Value_All) {
-            if (isWhereAdded) {
-                query += ' AND ';
-            } else {
-                query += ' WHERE ';
-            }
+            query += isWhereAdded ? ' AND ' : ' WHERE ';
             query += 'Type__c = \'' + tournamentType + '\'';
         }
         return Database.query(query);
